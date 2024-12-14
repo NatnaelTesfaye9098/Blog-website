@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p{
+    text-align: center;
+}
+
+form{
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-inline: 200px;
+    gap: 10px;
+}
+
+input, textarea{
+    border-radius: 10px;
+    box-shadow:0px 0px 5px rgba(81, 81, 128, 0.7);
+    padding: 10px;
+    border: 0;
+}
+
+.postcontainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: 300px;
+}
+
+.post{
+    margin: 20px;
+    height: auto;
+    box-shadow: 0px 0px 5px rgba(81, 81, 128, 0.7);
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.post-content {
+    max-height: 150px;  
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+
+.extended{
+    height: auto; 
+    overflow: visible; 
+    padding-bottom: 10px;
+}
+
+.readmore{
+    display: inline-block;
+    margin-top: 10px;
+}
