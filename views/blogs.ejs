@@ -11,11 +11,14 @@
     <%- include("partials/header.ejs")%>
             <%if(locals.arr && arr.length > 0){%>
                 <div class="postcontainer">
-                    <%arr.forEach(items =>{%>
+                    <%arr.forEach((item) =>{%>
                         <div class ="post">
-                            <a href="#" class="readmore">Read More...</a>
-                            <h2><%= items.title %></h2>
-                            <p class="post-content"><%= items.post %></p>
+                            <h2><%= item.title %></h2>
+                            <p><%= item.post %></p>
+                            <div class="buttons">
+                                <a href="/edit/<%= item.id%>" class="edit"><button>Edit</button></a>
+                                <a href="/remove/<%= item.id%>" class="remove"><button>Remove</button></a>
+                            </div>
                         </div>
                     <%})%>
                 </div>
@@ -23,17 +26,18 @@
             <p>No posts yet! Create One.</p>
         <%}%>
         <div class="container">
-            <form action="/submit"  method="POST">
-                <label for="title">Title</label>
-                <input type="text" name="title">
-
-                <label for="post">Write the post</label>
-                <textarea name ="post" id ="post" rows = 5 required></textarea>
-                <input type="submit" value="post">
+            <form action="<% if (editPost) { %>/update/<%= editPost.id %><% } else { %>/submit<% } %>" method="POST">
+              <label for="title">Title</label>
+              <input type="text" name="title" value="<%= editPost && editPost.title ? editPost.title : '' %>">
+          
+              <label for="post">Write the post</label>
+              <textarea name="post" id="post" rows="5" required><%= editPost && editPost.post ? editPost.post : '' %></textarea>
+          
+              <input type="submit" value="<%= editPost ? 'Update' : 'Post' %>">
+              <input type="hidden" name="postId" value="<%= editPost && editPost.id ? editPost.id : '' %>">
             </form>
+          </div>
         </div>
-            <%- include("partials/footer.ejs")%>
-        </div>
-        <!-- <script src="index2.js"></script> -->
+        <!-- <%- include("partials/footer.ejs")%> -->
 </body>
 </html>

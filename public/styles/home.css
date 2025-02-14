@@ -1,5 +1,6 @@
 body{
    margin: 0px;
+   width: 100%;
 }
 
 .hero{
@@ -18,7 +19,10 @@ body{
 .hero .text{
     display: flex;
     flex-direction:column;
+    justify-content: space-between;
+    gap: 5px;
     width: 450px;
+    padding-inline: 0px;
 }
 
 .hero p{
