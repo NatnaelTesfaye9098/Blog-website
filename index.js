@@ -37,7 +37,7 @@ app.get("/remove/:id", (req, res)=>{
     const id = parseInt(req.params.id);
     const searchIndex = arr.findIndex((post)=>post.id ===id);
     if(searchIndex == -1) res.status(404).json({ message: "Post not found" });
-    arr.splice(searchIndex-1, 1);
+    arr.splice(searchIndex, 1);
 
     res.redirect("/Blog");
 });

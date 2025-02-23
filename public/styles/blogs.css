@@ -1,9 +1,9 @@
 html, body {
-    height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    flex: 1;
 }
 
 p{
@@ -41,4 +41,21 @@ input, textarea{
     padding: 10px;
     box-sizing: border-box;
     position: relative;
+    border: 1px solid green;
+    overflow-wrap: anywhere;
+}
+
+.buttons button{
+    width: 70px;
+    height: 35px;
+    background-color: rgba(81, 81, 128, 0.7);
+    border: 0px;
+    border-radius: 20px;
+    margin: 5px;
+    color: whitesmoke;
+}
+
+.buttons button:hover{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+    transition: all 0.2s ease-in-out
 }
