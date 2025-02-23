@@ -10,11 +10,10 @@ let editPost= {};
 
 
 app.use(bodyParser.urlencoded({extended: true}));
-
 app.use(express.static("public"));
 
 app.get("/", (req, res)=>{
-    res.render("home.ejs")
+    res.render("home.ejs");
 });
 
 app.get("/Blog", (req, res)=>{
@@ -24,8 +23,8 @@ app.get("/Blog", (req, res)=>{
 app.post("/submit", (req, res)=>{
     const newId = lastId+=1
     const newPost = {
-        title: req.body["title"],
-        post: req.body["post"],
+        title: req.body.title,
+        post: req.body.post,
         id: newId
     }
 
@@ -38,7 +37,7 @@ app.get("/remove/:id", (req, res)=>{
     const id = parseInt(req.params.id);
     const searchIndex = arr.findIndex((post)=>post.id ===id);
     if(searchIndex == -1) res.status(404).json({ message: "Post not found" });
-    arr.splice(searchIndex, 1);
+    arr.splice(searchIndex-1, 1);
 
     res.redirect("/Blog");
 });
