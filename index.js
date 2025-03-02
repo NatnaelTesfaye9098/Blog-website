@@ -1,13 +1,15 @@
 import express from "express"
 import bodyParser from "body-parser"
+import env from "dotenv"
+
+env.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 const arr= [];
 
 let lastId = 0;
 let editPost= {};
-
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));

@@ -15,7 +15,7 @@
                             <h2><%= item.title %></h2>
                             <p><%= item.post %></p>
                             <div class="buttons">
-                                <a href="/edit/<%= item.id%>" class="edit"><button>Edit</button></a>
+                                <a href="/edit/<%= item.id%>#form" class="edit"><button>Edit</button></a>
                                 <a href="/remove/<%= item.id%>" class="remove"><button>Remove</button></a>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
         <%}else{%>
             <p>No posts yet! Create One.</p>
         <%}%>
-            <form action="<% if (editPost) { %>/update/<%= editPost.id %><% } else { %>/submit<% } %>" method="POST">
+            <form id="form" action="<% if (editPost) { %>/update/<%= editPost.id %><% } else { %>/submit<% } %>" method="POST">
               <label for="title">Title</label>
               <input type="text" name="title" value="<%= editPost && editPost.title ? editPost.title : '' %>">
           
